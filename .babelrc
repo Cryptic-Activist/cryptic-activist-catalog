@@ -1,0 +1,28 @@
+{
+  "presets": ["next/babel"],
+  "plugins": [
+    [
+      "styled-components",
+      {
+        "ssr": true,
+        "displayName": true,
+        "preprocess": false
+      }
+    ],
+    [
+      "module-resolver",
+      {
+        "alias": {
+          "@pages": "./pages",
+          "@controllers": "./src/controllers",
+          "@database": "./src/database",
+          "@interfaces": "./src/interfaces",
+          "@middlewares": "./src/middlewares",
+          "@models": "./src/models",
+          "@routes": "./src/routes",
+          "@utils": "./src/utils"
+        }
+      }
+    ]
+  ]
+}
