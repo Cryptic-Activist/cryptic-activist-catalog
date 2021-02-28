@@ -288,6 +288,15 @@ export default {
             }
           }
         }
+      },
+      aboutUs: {
+        heading: {
+          color: '#000'
+        },
+        text: {
+          color: '#000'
+        },
+        background: '#fff'
       }
     },
 

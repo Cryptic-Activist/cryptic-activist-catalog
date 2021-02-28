@@ -6,7 +6,8 @@
     "dev": "next dev",
     "test": "jest",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "refresh": "rm -rf ./node_modules ./yarn.lock ./yarn-error.log && yarn install"
   },
   "husky": {
     "hooks": {
@@ -17,6 +18,7 @@
   },
   "lint-staged": {
     "*.ts": [
+      "eslint --fix",
       "git add ."
     ]
   },
@@ -63,8 +65,10 @@
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^7.18.0",
     "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-prettier": "^8.0.0",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^3.3.1",
     "eslint-plugin-react": "^7.22.0",
     "eslint-plugin-react-hooks": "^4.2.0",
     "husky": "^4.3.8",

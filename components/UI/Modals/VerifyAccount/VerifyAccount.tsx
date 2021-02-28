@@ -13,10 +13,15 @@ import {
   PrivateKeyInput,
   PrivateKeysList,
   VerifyBtn,
-  SuccessMsg
+  SuccessMsg,
+  Button
 } from '../../../../styles/components/UI/Modals/VerifyAccount/VerifyAccount';
 
 import { setWarnings, resetWarnings } from '../../../../store/actions/app/app';
+import {
+  openLoginForm,
+  closeVerifyAccount
+} from '../../../../store/actions/navbar/navbar';
 
 const mapStateToProps = ({ app }) => {
   return { app };
@@ -94,6 +99,11 @@ const VerifyAccount: FC<{ handleCloseVerifyAccount: () => void; app: any }> = ({
     }
   }
 
+  function handleOpenLoginForm(): void {
+    dispatch(closeVerifyAccount());
+    dispatch(openLoginForm());
+  }
+
   return (
     <>
       <Background onClick={() => handleCloseVerifyAccount()} />
@@ -133,6 +143,9 @@ const VerifyAccount: FC<{ handleCloseVerifyAccount: () => void; app: any }> = ({
               />
               <br />
               <VerifyBtn type="submit">Verify Account</VerifyBtn>
+              <Button type="button" onClick={() => handleOpenLoginForm()}>
+                Already have an account?
+              </Button>
             </div>
           </>
         )}

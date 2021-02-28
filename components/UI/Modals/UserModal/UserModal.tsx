@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import { useDispatch } from 'react-redux';
 
 import {
@@ -6,11 +7,11 @@ import {
   FlexList,
   FlexListItem,
   FlexListItemButton
-} from "../../../../styles/components/UI/Modals/UserModal/UserModal"
+} from '../../../../styles/components/UI/Modals/UserModal/UserModal';
 
-import { logoutUser } from '../../../../store/actions/user/user'
-import { clearLink } from '../../../../store/actions/link/link'
-import { clearLinks } from '../../../../store/actions/links/links'
+import { logoutUser } from '../../../../store/actions/user/user';
+import { clearLink } from '../../../../store/actions/link/link';
+import { clearLinks } from '../../../../store/actions/links/links';
 
 const UserModal = () => {
   const dispatch = useDispatch();
@@ -19,16 +20,20 @@ const UserModal = () => {
     dispatch(logoutUser());
     dispatch(clearLink());
     dispatch(clearLinks());
-  }
+  };
 
   return (
     <Wrapper>
       <FlexList>
-        <FlexListItem href='/account/dashboard'>Account</FlexListItem>
-        <FlexListItemButton onClick={() => handleLogoutUser()} >Sign out</FlexListItemButton>
+        <Link href="/account" as="/account">
+          <FlexListItem>Account</FlexListItem>
+        </Link>
+        <FlexListItemButton onClick={() => handleLogoutUser()}>
+          Sign out
+        </FlexListItemButton>
       </FlexList>
     </Wrapper>
-  )
-}
+  );
+};
 
-export default UserModal
+export default UserModal;

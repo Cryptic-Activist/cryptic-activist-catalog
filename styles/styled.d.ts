@@ -293,6 +293,15 @@ declare module 'styled-components' {
             };
           };
         };
+        aboutUs: {
+          heading: {
+            color: string;
+          };
+          text: {
+            color: string;
+          };
+          background: string;
+        };
       };
 
       switchers: {

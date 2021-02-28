@@ -6,6 +6,7 @@ export const Background = styled.div`
   height: 100%;
   width: 100%;
   background: rgba(0, 0, 0, 0.3);
+  z-index: 999;
 `;
 
 export const FormDiv = styled.div`
@@ -21,7 +22,7 @@ export const FormDiv = styled.div`
   padding: 20px;
   border-radius: 6px;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 4px, rgba(0, 0, 0, 0.15) 0px 0px 2px;
-  z-index: 9;
+  z-index: 9999;
   &::-webkit-scrollbar {
     display: none;
   }

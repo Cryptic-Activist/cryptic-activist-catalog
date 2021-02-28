@@ -21,6 +21,7 @@ export const Container = styled.div`
   transform: translate(-50%, -50%);
   border-radius: 6px;
   padding: 20px;
+  z-index: 99999999;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 4px, rgba(0, 0, 0, 0.15) 0px 0px 2px;
   @media (max-width: 680px) {
     width: 80%;

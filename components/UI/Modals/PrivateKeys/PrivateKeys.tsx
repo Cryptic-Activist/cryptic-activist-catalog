@@ -39,7 +39,7 @@ const PrivateKeys: FC<{
           </Instructions>
           <br />
           <Instructions>
-            Make sure to store these 24 words private keys somewhere save. It
+            Make sure to store these 24 words private keys somewhere safe. It
             won't be avaiable to retrive at any time.
           </Instructions>
         </div>

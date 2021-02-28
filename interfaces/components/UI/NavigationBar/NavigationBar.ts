@@ -1,17 +1,8 @@
+import { IApp, IUser } from '../../../store/reducers/reducers';
+
 export interface IStateToPropUser {
-  user: {
-    data: object;
-    loading: boolean;
-    fetched: boolean;
-    errors: string[];
-  };
-  app: {
-    isMobile: boolean;
-    dimensions: {
-      width: number;
-      height: number;
-    };
-  };
+  user: IUser;
+  app: IApp;
   navbar: {
     openLoginForm: boolean;
     openRegisterForm: boolean;

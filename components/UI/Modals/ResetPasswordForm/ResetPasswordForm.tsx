@@ -1,4 +1,4 @@
-import React, { useState, FC, ChangeEvent, FormEvent } from 'react';
+import React, { useState, FC, FormEvent } from 'react';
 
 import {
   Background,
@@ -21,33 +21,28 @@ const ResetPasswordForm: FC<ResetPasswordFormProps> = ({
   handleOpenLoginForm,
   handleToggleResetPasswordForm
 }) => {
-  const [email, setEmail] = useState<string>('');
-
   const [warning, setWarning] = useState<boolean>(false);
   const [warningMessage, setWarningMessage] = useState<string>('');
 
-  const onChangeEmail = (e) => {
-    setEmail(e.target.value);
-  };
+  function checkValidForm(): boolean {
+    // if (email.length > 0) {
+    //   setWarning(false);
+    //   setWarningMessage('');
+    //   return true;
+    // } else {
+    //   setWarning(true);
+    //   setWarningMessage('All fields must be filled');
+    //   return false;
+    // }
+    return true;
+  }
 
-  const checkValidForm = () => {
-    if (email.length > 0) {
-      setWarning(false);
-      setWarningMessage('');
-      return true;
-    } else {
-      setWarning(true);
-      setWarningMessage('All fields must be filled');
-      return false;
-    }
-  };
-
-  const handleSubmitResetPassword = (e: FormEvent<HTMLFormElement>) => {
+  function handleSubmitResetPassword(e: FormEvent<HTMLFormElement>): void {
     e.preventDefault();
     if (checkValidForm()) {
-      console.log(email);
+      // console.log(email);
     }
-  };
+  }
 
   return (
     <>
@@ -59,7 +54,7 @@ const ResetPasswordForm: FC<ResetPasswordFormProps> = ({
             handleSubmitResetPassword(e)
           }
         >
-          <div>
+          {/* <div>
             <Label htmlFor="email">Email</Label>
             <Input
               id="email"
@@ -67,7 +62,7 @@ const ResetPasswordForm: FC<ResetPasswordFormProps> = ({
               value={email}
               onChange={(e) => onChangeEmail(e)}
             />
-          </div>
+          </div> */}
           <Submit type="submit">Reset Password</Submit>
           <div>
             {warning && warningMessage.length > 0 && (

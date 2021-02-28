@@ -1,11 +1,11 @@
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components';
 
 import {
   SlideDrawerClose,
   SlideDrawerOpen,
   ShowBackground,
-  HideBackground,
-} from "../../../../animations/Animations";
+  HideBackground
+} from '../../../../animations/Animations';
 
 interface userModelProps {
   openUserModal: boolean;
@@ -33,7 +33,7 @@ export const Background = styled.div`
   top: 0;
   left: 0;
   position: fixed;
-  z-index: 999;
+  z-index: 99999;
   background: rgba(0, 0, 0, 0.15);
   /* ${(props: userModelProps) =>
     props.openUserModal ? hideBackground : showBackground}; */
@@ -52,7 +52,7 @@ export const DrawerDiv = styled.div`
   /* ${(props: userModelProps) =>
     props.openUserModal ? openDrawer : closeDrawer}; */
   overflow: hidden;
-  z-index: 9999;
+  z-index: 99999999;
   @media (max-height: 225px) {
     overflow-y: scroll;
   }

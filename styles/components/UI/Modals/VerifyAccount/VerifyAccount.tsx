@@ -17,7 +17,7 @@ export const Container = styled.form`
   flex-direction: column;
   gap: 2rem;
   position: fixed;
-  z-index: 999999;
+  z-index: 99999999;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -111,4 +111,17 @@ export const SuccessMsg = styled.p`
   color: ${(props) => props.theme.colors.text};
   margin: 15px 0;
   text-align: center;
+`;
+
+export const Button = styled.button`
+  display: table;
+  margin: 4px auto;
+  background: transparent;
+  border: none;
+  color: ${(props) => props.theme.colors.text};
+  font-size: 14px;
+  cursor: pointer;
+  &:focus {
+    outline: none;
+  }
 `;

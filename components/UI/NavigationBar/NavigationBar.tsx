@@ -186,7 +186,9 @@ const NavigationBar: FC<IStateToPropUser> = ({ user, app, navbar }) => {
                   !user.loading &&
                   user.errors.length === 0 &&
                   user.fetched && (
-                    <UserButton>{user.data.names.first_name}</UserButton>
+                    <UserButton onClick={() => handleToggleUserModalForm()}>
+                      {user.data.names.first_name}
+                    </UserButton>
                   )}
                 {user.loading && <LoadingDiv>Loading</LoadingDiv>}
                 {_.isEmpty(user.data) && !user.loading && (

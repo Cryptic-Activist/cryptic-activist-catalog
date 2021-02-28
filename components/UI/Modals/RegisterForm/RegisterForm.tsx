@@ -26,7 +26,7 @@ import {
 
 import { resetWarnings, setWarnings } from '../../../../store/actions/app/app';
 
-import { IRegistrationFormProps } from '../../../../interfaces/components/UI/Modals/Modals';
+import { IRegistrationFormProps } from '../../../../interfaces/components/UI/Modals';
 
 interface RegisterUserProps {
   names: {
@@ -34,7 +34,6 @@ interface RegisterUserProps {
     lastName: string;
   };
   username: string;
-  email: string;
   password: string;
   password2: string;
 }
@@ -52,7 +51,6 @@ const RegisterForm: FC<IRegistrationFormProps> = ({
   const [firstName, setFirstName] = useState<string>('');
   const [lastName, setLastName] = useState<string>('');
   const [username, setUsername] = useState<string>('');
-  const [email, setEmail] = useState<string>(null);
   const [password, setPassword] = useState<string>('');
   const [password2, setPassword2] = useState<string>('');
 
@@ -94,10 +92,6 @@ const RegisterForm: FC<IRegistrationFormProps> = ({
 
   function handleTogglePrivateKeysModal(): void {
     setTogglePrivateKeys(!togglePrivateKeys);
-  }
-
-  function onChangeEmail(e: ChangeEvent<HTMLInputElement>): void {
-    setEmail(e.target.value);
   }
 
   function onChangePassword(e: ChangeEvent<HTMLInputElement>): void {
@@ -170,7 +164,6 @@ const RegisterForm: FC<IRegistrationFormProps> = ({
           lastName
         },
         username,
-        email,
         password,
         password2
       });
@@ -209,19 +202,10 @@ const RegisterForm: FC<IRegistrationFormProps> = ({
         ) : (
           <>
             {success ? (
-              <>
-                {email ? (
-                  <SuccessP>
-                    Your registration confirmation email has been sent to{' '}
-                    <strong>{email}</strong>.
-                  </SuccessP>
-                ) : (
-                  <SuccessP>
-                    The next step is crucial. Make sure to follow the next
-                    instructions since it won't able available anymore.
-                  </SuccessP>
-                )}
-              </>
+              <SuccessP>
+                The next step is crucial. Make sure to follow the next
+                instructions since it won't able available anymore.
+              </SuccessP>
             ) : (
               <Form onSubmit={(e) => handleSubmitRegister(e)}>
                 <SplitDiv>
@@ -250,18 +234,6 @@ const RegisterForm: FC<IRegistrationFormProps> = ({
                   <Label htmlFor="username">Username</Label>
                   <Required>*</Required>
                   <Input id="username" type="text" value={username} disabled />
-                </div>
-                <div>
-                  <Label htmlFor="email">Email</Label>
-                  <InfoBtn>
-                    <FaInfo />
-                  </InfoBtn>
-                  <Input
-                    id="email"
-                    type="email"
-                    value={email}
-                    onChange={(e) => onChangeEmail(e)}
-                  />
                 </div>
                 <div>
                   <Label htmlFor="password">Password</Label>
