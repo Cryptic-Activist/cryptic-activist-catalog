@@ -29,6 +29,11 @@ declare module 'styled-components' {
             borderColor: string;
           };
         };
+        userModal: {
+          background: string;
+          color: string;
+          borderColor: string;
+        };
         search: {
           offersSearch: {
             background: string;

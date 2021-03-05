@@ -4,9 +4,11 @@ export const Wrapper = styled.div`
   width: 100px;
   position: absolute;
   top: 67px;
-  background: #33ab33;
+  transform: translateX(-13px);
+  background: ${(props) => props.theme.colors.components.userModal.background};
   border-radius: 4px;
-  border: 1px solid #47a947;
+  border: 1px solid
+    ${(props) => props.theme.colors.components.userModal.borderColor};
 `;
 
 export const FlexList = styled.div`
@@ -19,21 +21,16 @@ export const FlexListItem = styled.a`
   padding: 8px 0;
   font-size: 16px;
   text-align: center;
-  color: #fff;
+  color: ${(props) => props.theme.colors.components.userModal.color};
   text-decoration: none;
   transition: all 0.2s ease-in-out;
-  &:hover {
-    background-color: #2da22d;
-  }
-  &:active {
-    background-color: #278c27;
-  }
 `;
+
 export const FlexListItemButton = styled.button`
   padding: 8px 0;
   font-size: 16px;
   text-align: center;
-  color: #fff;
+  color: ${(props) => props.theme.colors.components.userModal.color};
   text-decoration: none;
   border: none;
   background: transparent;
@@ -42,11 +39,5 @@ export const FlexListItemButton = styled.button`
   transition: all 0.2s ease-in-out;
   &:focus {
     outline: none;
-  }
-  &:hover {
-    background-color: #2da22d;
-  }
-  &:active {
-    background-color: #278c27;
   }
 `;

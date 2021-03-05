@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, FC } from 'react';
 import { FaCircle, FaHeart, FaHeartBroken } from 'react-icons/fa';
 
 import Identicon from '../../assets/img/identicon.png';
@@ -32,16 +32,17 @@ import {
   FeedbacksListSection
 } from '../../styles/pages/Vendor/Vendor';
 
-const Vendor = ({ username }) => {
+const Vendor: FC<any> = ({ username }) => {
   const [name, setName] = useState<string>('');
 
   useEffect(() => {
     const nameArr: string[] = username.split('-');
-    let auxName: string = '';
+    let auxName = '';
 
-    nameArr.forEach((name, i) => {
+    nameArr.forEach((nameItem, i) => {
       auxName +=
-        name.substring(0, 1).toUpperCase() + name.substring(1, name.length);
+        nameItem.substring(0, 1).toUpperCase() +
+        nameItem.substring(1, nameItem.length);
 
       if (!(i === nameArr.length - 1)) {
         auxName += ' ';

@@ -26,6 +26,11 @@ export default {
           borderColor: '#000'
         }
       },
+      userModal: {
+        background: '#ffcd2b',
+        color: '#000',
+        borderColor: '#000'
+      },
       search: {
         offersSearch: {
           background: '#fff',

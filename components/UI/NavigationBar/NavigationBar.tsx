@@ -188,6 +188,12 @@ const NavigationBar: FC<IStateToPropUser> = ({ user, app, navbar }) => {
                   user.fetched && (
                     <UserButton onClick={() => handleToggleUserModalForm()}>
                       {user.data.names.first_name}
+                      {!_.isEmpty(user.data) &&
+                        !user.loading &&
+                        user.errors.length === 0 &&
+                        user.fetched &&
+                        !app.isMobile &&
+                        navbar.openUserModal && <UserModal />}
                     </UserButton>
                   )}
                 {user.loading && <LoadingDiv>Loading</LoadingDiv>}
@@ -196,12 +202,6 @@ const NavigationBar: FC<IStateToPropUser> = ({ user, app, navbar }) => {
                     Login
                   </LoginButton>
                 )}
-                {!_.isEmpty(user.data) &&
-                  !user.loading &&
-                  user.errors.length === 0 &&
-                  user.fetched &&
-                  !app.isMobile &&
-                  navbar.openUserModal && <UserModal />}
               </Menu>
             )}
           </div>
