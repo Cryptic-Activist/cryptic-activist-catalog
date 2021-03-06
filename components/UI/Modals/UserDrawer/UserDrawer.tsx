@@ -1,47 +1,30 @@
-import React, { FC } from "react";
-import { connect, useDispatch } from "react-redux";
-import Link from "next/link";
-import _ from "lodash";
+import React, { FC } from 'react';
+import { connect, useDispatch } from 'react-redux';
+import Link from 'next/link';
+import _ from 'lodash';
+
+import { IUserDrawer } from '../../../../interfaces/components/UI/Modals/index';
 
 import {
   Background,
   DrawerDiv,
   List,
   ListItem,
-  LogoutButton,
-} from "../../../../styles/components/UI/Modals/UserDrawer/UserDrawer";
+  LogoutButton
+} from '../../../../styles/components/UI/Modals/UserDrawer/UserDrawer';
 
-import { logoutUser } from "../../../../store/actions/user/user";
-import { clearLink } from "../../../../store/actions/link/link";
-import { clearLinks } from "../../../../store/actions/links/links";
+import { logoutUser } from '../../../../store/actions/user/user';
+import { clearLink } from '../../../../store/actions/link/link';
+import { clearLinks } from '../../../../store/actions/links/links';
 
-interface UserDrawerProps {
-  openUserModal: boolean;
-  openUserDrawer: boolean;
-  handleToggleUserModalForm: () => void;
-  handleCloseUserDrawer: () => void;
-  user: {
-    data: object;
-    loading: boolean;
-    fetched: boolean;
-    error: boolean;
-  };
-}
+const mapStateToProps = ({ user }) => ({ user });
 
-const mapStateToProps = (state) => {
-  const { user } = state;
-
-  return {
-    user,
-  };
-};
-
-const UserDrawer: FC<UserDrawerProps> = ({
+const UserDrawer: FC<IUserDrawer> = ({
   openUserModal,
   openUserDrawer,
   handleCloseUserDrawer,
   handleToggleUserModalForm,
-  user,
+  user
 }) => {
   const dispatch = useDispatch();
 
@@ -62,29 +45,49 @@ const UserDrawer: FC<UserDrawerProps> = ({
           <DrawerDiv openUserModal={openUserModal}>
             <List>
               <Link href="/account" as="/account">
-                <ListItem onClick={() => handleToggleUserModalForm()}>
+                <ListItem
+                  onClick={() => {
+                    handleCloseUserDrawer();
+                    handleToggleUserModalForm();
+                  }}
+                >
                   Account
                 </ListItem>
               </Link>
               <Link href="/" as="/">
-                <ListItem onClick={() => handleToggleUserModalForm()}>
+                <ListItem
+                  onClick={() => {
+                    handleCloseUserDrawer();
+                    handleToggleUserModalForm();
+                  }}
+                >
                   Home
                 </ListItem>
               </Link>
-              <Link href="/buyers" as="/buyers">
-                <ListItem onClick={() => handleToggleUserModalForm()}>
-                  Buyers
+              <Link href="/vendors" as="/vendors">
+                <ListItem
+                  onClick={() => {
+                    handleCloseUserDrawer();
+                    handleToggleUserModalForm();
+                  }}
+                >
+                  Vendors
                 </ListItem>
               </Link>
-              <Link href="/sellers" as="/sellers">
-                <ListItem onClick={() => handleToggleUserModalForm()}>
-                  Sellers
+              <Link href="/map" as="/map">
+                <ListItem
+                  onClick={() => {
+                    handleCloseUserDrawer();
+                    handleToggleUserModalForm();
+                  }}
+                >
+                  Map
                 </ListItem>
               </Link>
             </List>
-            {!_.isEmpty(user.data) &&
+            {Object.entries(user.data).length > 0 &&
               !user.loading &&
-              !user.error &&
+              user.errors.length === 0 &&
               user.fetched && (
                 <LogoutButton onClick={() => handleLogoutUser()}>
                   Log out

@@ -49,11 +49,15 @@ export const RightDiv = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  gap: 15px;
 `;
 
 export const Price = styled.strong`
   font-size: 16px;
   text-align: right;
+  @media (max-width: 370px) {
+    text-align: left;
+  }
 `;
 
 export const Speed = styled.div`
@@ -68,6 +72,9 @@ export const Speed = styled.div`
     font-size: 16px;
     font-weight: 900;
   }
+  @media (max-width: 370px) {
+    justify-content: flex-start;
+  }
 `;
 
 export const LimitsBunttonDiv = styled.div`
@@ -79,6 +86,10 @@ export const LimitsBunttonDiv = styled.div`
 
 export const Limits = styled.p`
   font-size: 16px;
+  text-align: right;
+  @media (max-width: 370px) {
+    text-align: left;
+  }
 `;
 
 export const Button = styled.button`
@@ -93,7 +104,12 @@ export const Button = styled.button`
     props.theme.colors.components.offersList.list.offer.rate.button.color};
   padding: 6px 10px;
   font-size: 16px;
+  width: fit-content;
+  align-self: flex-end;
   &:focus {
     outline: none;
+  }
+  @media (max-width: 370px) {
+    align-self: flex-start;
   }
 `;

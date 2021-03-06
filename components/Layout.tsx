@@ -142,7 +142,7 @@ const Layout: FC<LayoutProps> = ({
   }, []);
 
   useEffect(() => {
-    if (app.dimensions[0] <= 760) {
+    if (app.dimensions[0] <= 768) {
       dispatch(setIsMobile(true));
     } else {
       dispatch(setIsMobile(false));

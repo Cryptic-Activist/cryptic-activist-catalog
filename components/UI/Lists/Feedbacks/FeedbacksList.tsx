@@ -1,8 +1,9 @@
-import React, { ChangeEvent, FC } from 'react';
-import { connect } from 'react-redux';
+import React, { FC, useState } from 'react';
+import { connect, useDispatch } from 'react-redux';
+import { FaSortDown } from 'react-icons/fa';
 
 import Feedback from './Feedback/Feedback';
-import { useDispatch } from 'react-redux';
+import FeedbackTypeList from './FeedbackTypeList/FeedbackTypeList';
 
 import { setAsBuy, setAsSell } from '../../../../store/actions/app/app';
 
@@ -16,7 +17,8 @@ import {
   HeaderTitle,
   AllPositiveNegative,
   AllPositiveNegativeDiv,
-  List
+  List,
+  MobileOpenFeedbacksBtn
 } from '../../../../styles/components/UI/Lists/Feedbacks/FeedbacksList';
 
 const mapStateToProps = ({ app }) => ({ app });
@@ -24,12 +26,18 @@ const mapStateToProps = ({ app }) => ({ app });
 const FeedbacksList: FC<{ app: IApp }> = ({ app }) => {
   const dispatch = useDispatch();
 
+  const [toggleType, setToggleType] = useState(false);
+
   function selectAsBuy(): void {
     dispatch(setAsBuy());
   }
 
   function selectAsSell(): void {
     dispatch(setAsSell());
+  }
+
+  function handleToggleType(): void {
+    setToggleType(!toggleType);
   }
 
   return (
@@ -50,11 +58,20 @@ const FeedbacksList: FC<{ app: IApp }> = ({ app }) => {
           </HeaderTitle>
         </HeaderBtnDiv>
         <AllPositiveNegativeDiv>
-          <AllPositiveNegative className="selected">
-            All (6)
-          </AllPositiveNegative>
-          <AllPositiveNegative>Positive (5)</AllPositiveNegative>
-          <AllPositiveNegative>Negative (1)</AllPositiveNegative>
+          {app.isMobile ? (
+            <MobileOpenFeedbacksBtn onClick={() => handleToggleType()}>
+              <FaSortDown />
+              {toggleType && <FeedbackTypeList />}
+            </MobileOpenFeedbacksBtn>
+          ) : (
+            <>
+              <AllPositiveNegative className="selected">
+                All (6)
+              </AllPositiveNegative>
+              <AllPositiveNegative>Positive (5)</AllPositiveNegative>
+              <AllPositiveNegative>Negative (1)</AllPositiveNegative>
+            </>
+          )}
         </AllPositiveNegativeDiv>
       </Header>
       <List>

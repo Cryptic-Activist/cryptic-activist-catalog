@@ -14,6 +14,18 @@ export const Container = styled.div`
   grid-template-columns: 54px 0.7fr 2.6fr 0.4fr;
   grid-gap: 10px;
   padding: 20px 14px;
+  @media (max-width: 768px) {
+    grid-template-columns: 0.3fr 1fr;
+  }
+  @media (max-width: 510px) {
+    grid-template-columns: 0.25fr 1fr;
+  }
+`;
+
+export const MobileDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 `;
 
 export const ProfileImage = styled.div`

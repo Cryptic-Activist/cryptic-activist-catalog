@@ -100,10 +100,6 @@ export const LoadingDiv = styled.div`
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   user-select: none;
-  &:hover {
-    /* background-color: #ffcd2b;
-    color: #000; */
-  }
   &:focus {
     outline: none;
   }
@@ -124,10 +120,6 @@ export const UserButton = styled.button`
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   user-select: none;
-  &:hover {
-    /* background-color: #ffcd2b;
-    color: #000; */
-  }
   &:focus {
     outline: none;
   }

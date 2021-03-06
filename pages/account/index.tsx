@@ -1,15 +1,16 @@
 import React, { FC, useEffect } from 'react';
 import Router from 'next/router';
-import { FaCircle, FaHeart, FaHeartBroken } from 'react-icons/fa';
+import Link from 'next/link';
+import { FaCircle, FaHeart, FaHeartBroken, FaCog } from 'react-icons/fa';
 import { connect } from 'react-redux';
 
-import { IUser } from '../interfaces/store/reducers/reducers';
-import DateFormatter from '../utils/formatter/date/DateFormatter';
+import { IUser } from '../../interfaces/store/reducers/reducers';
+import DateFormatter from '../../utils/formatter/date/DateFormatter';
 
-import CurrentOffersList from '../components/UI/Lists/CurrentOffers/CurrentOffersList';
-import FeedbacksList from '../components/UI/Lists/Feedbacks/FeedbacksList';
+import CurrentOffersList from '../../components/UI/Lists/CurrentOffers/CurrentOffersList';
+import FeedbacksList from '../../components/UI/Lists/Feedbacks/FeedbacksList';
 
-import Identicon from '../assets/img/identicon.png';
+import Identicon from '../../assets/img/identicon.png';
 
 import {
   Flex,
@@ -34,8 +35,10 @@ import {
   CurrentOffersSection,
   CurrentOffersListHeading,
   FeedbacksListHeading,
-  FeedbacksListSection
-} from '../styles/pages/Account/Account';
+  FeedbacksListSection,
+  InlineSettingsDiv,
+  SettingsBtn
+} from '../../styles/pages/Account/Account';
 
 const mapStateToProps = ({ user }) => ({ user });
 
@@ -116,7 +119,14 @@ const Account: FC<any> = ({ user }) => {
                 </Aside>
                 <Main>
                   <VendorNameUsername>
-                    <VendorName>{`${user.data.names.first_name} ${user.data.names.last_name}`}</VendorName>
+                    <InlineSettingsDiv>
+                      <VendorName>{`${user.data.names.first_name} ${user.data.names.last_name}`}</VendorName>
+                      <Link href="/account/settings" as="/account/settings">
+                        <SettingsBtn>
+                          <FaCog />
+                        </SettingsBtn>
+                      </Link>
+                    </InlineSettingsDiv>
                     <VendorUsername>{user.data.username}</VendorUsername>
                     <VendorDescription>
                       Phasellus nisl nunc, luctus eu leo in, semper convallis
@@ -150,9 +160,19 @@ const Account: FC<any> = ({ user }) => {
                     </NegativeFeedback>
                   </Feedbacks>
                   <CurrentOffersSection>
-                    <CurrentOffersListHeading>
-                      Current offers
-                    </CurrentOffersListHeading>
+                    <InlineSettingsDiv>
+                      <CurrentOffersListHeading>
+                        Current offers
+                      </CurrentOffersListHeading>
+                      <Link
+                        href="/account/offers/settings"
+                        as="/account/offers/settings"
+                      >
+                        <SettingsBtn>
+                          <FaCog />
+                        </SettingsBtn>
+                      </Link>
+                    </InlineSettingsDiv>
                     <CurrentOffersList />
                   </CurrentOffersSection>
                   <FeedbacksListSection>

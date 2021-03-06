@@ -26,10 +26,17 @@ export const Flex = styled.div`
   display: flex;
   flex-direction: row;
   gap: 25px;
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
 export const Aside = styled.aside`
   width: 245px;
+  @media (max-width: 768px) {
+    width: 100%;
+    margin: 0 auto;
+  }
 `;
 
 export const Profile = styled.div`
@@ -40,9 +47,17 @@ export const Profile = styled.div`
   display: flex;
   flex-direction: column;
   gap: 20px;
+  @media (max-width: 768px) {
+    flex-direction: row;
+    position: relative;
+    top: 0;
+  }
   @media (max-height: 650px) {
     position: relative;
     top: 0;
+  }
+  @media (max-width: 574px) {
+    flex-direction: column;
   }
 `;
 
@@ -57,14 +72,30 @@ export const ProfileImage = styled.div`
     width: 100%;
     height: 100%;
   }
+  @media (max-width: 768px) {
+    width: 200px;
+    height: 200px;
+    img {
+      width: 200px;
+      height: 200px;
+    }
+  }
+  @media (max-width: 574px) {
+    margin: 0 auto;
+  }
 `;
 
 export const ProfileInfo = styled.div`
   width: 245px;
+  display: flex;
+  flex-direction: column;
   border: 1px solid
     ${(props) => props.theme.colors.pages.vendor.aside.profileImage.borderColor};
   border-radius: 4px;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 4px, rgba(0, 0, 0, 0.15) 0px 0px 2px;
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 export const ProfileInfoHeader = styled.div`
@@ -88,6 +119,15 @@ export const ProfileInfoList = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
+  @media (max-width: 768px) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+  }
+  @media (max-width: 350px) {
+    display: flex;
+    flex-direction: column;
+  }
 `;
 
 export const ProfileInfoListItem = styled.div`
@@ -116,10 +156,40 @@ export const VendorNameUsername = styled.div`
   gap: 5px;
 `;
 
+export const InlineSettingsDiv = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+`;
+
+export const SettingsBtn = styled.a`
+  border: 1px solid
+    ${(props) => props.theme.colors.pages.vendor.aside.information.borderColor};
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
+  svg {
+    font-size: 19px;
+  }
+`;
+
 export const VendorName = styled.h1`
   font-size: 32px;
   color: ${(props) =>
     props.theme.colors.pages.vendor.main.vendorNamesDescription.color};
+  @media (max-width: 991px) {
+    font-size: 30px;
+  }
+  @media (max-width: 850px) {
+    font-size: 28px;
+  }
+  @media (max-width: 450px) {
+    font-size: 26px;
+  }
 `;
 
 export const VendorUsername = styled.h2`
@@ -166,6 +236,9 @@ export const Feedbacks = styled.div`
   display: flex;
   flex-direction: row;
   gap: 10px;
+  @media (max-width: 400px) {
+    flex-direction: column;
+  }
 `;
 
 export const PositiveFeedback = styled.div`
@@ -204,6 +277,9 @@ export const PositiveFeedback = styled.div`
       font-size: 24px;
     }
   }
+  @media (max-width: 400px) {
+    width: 100%;
+  }
 `;
 
 export const NegativeFeedback = styled.div`
@@ -241,6 +317,9 @@ export const NegativeFeedback = styled.div`
         props.theme.colors.pages.vendor.main.feedbacks.negative.color};
       font-size: 24px;
     }
+  }
+  @media (max-width: 400px) {
+    width: 100%;
   }
 `;
 

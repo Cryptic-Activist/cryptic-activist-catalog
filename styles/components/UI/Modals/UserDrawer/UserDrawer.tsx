@@ -85,23 +85,21 @@ export const ListItem = styled.a`
 
 export const LogoutButton = styled.button`
   font-size: 16px;
-  border: 1px solid #47a947;
-  border-radius: 6px;
-  padding: 7px;
-  background-color: #33ab33;
-  color: #fff;
   margin-left: 15px;
-  margin-top: 15px;
-  margin-bottom: 15px;
+  margin-top: 5px;
+  padding: 7px 9px;
+  color: ${(props) => props.theme.colors.components.navbar.user.color};
+  background: ${(props) =>
+    props.theme.colors.components.navbar.user.background};
+  border: 1px solid
+    ${(props) => props.theme.colors.components.navbar.user.borderColor};
+  border-radius: 4px;
+  text-decoration: none;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 4px, rgba(0, 0, 0, 0.15) 0px 0px 2px;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
+  user-select: none;
   &:focus {
     outline: none;
-  }
-  &:hover {
-    background-color: #2da22d;
-  }
-  &:active {
-    background-color: #278c27;
   }
 `;

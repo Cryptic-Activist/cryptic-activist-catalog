@@ -79,6 +79,23 @@ export const HeaderTitle = styled.button`
   }
 `;
 
+export const MobileOpenFeedbacksBtn = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: ${(props) =>
+    props.theme.colors.components.currentVendorOffers.header.background};
+  border: none;
+  margin: 0 14px;
+  &:focus {
+    outline: none;
+  }
+  svg {
+    font-size: 16px;
+    transform: translateY(-2px);
+  }
+`;
+
 export const AllPositiveNegativeDiv = styled.div`
   display: flex;
   flex-direction: row;

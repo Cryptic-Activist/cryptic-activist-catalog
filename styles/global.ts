@@ -35,6 +35,9 @@ export default createGlobalStyle`
   body::-webkit-scrollbar {
     width: 10px;
     background-color: ${(props) => props.theme.colors.mainBackground};
+    @media (max-width: 768px) {
+      display: none;
+    }
   }
 
   body::-webkit-scrollbar-thumb {

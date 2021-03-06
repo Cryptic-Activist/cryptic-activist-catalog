@@ -35,6 +35,9 @@ export const Header = styled.div`
       props.theme.colors.components.currentVendorOffers.header.buttons.active
         .color};
   }
+  @media (max-width: 370px) {
+    justify-content: space-between;
+  }
 `;
 
 export const HeaderTitleLeft = styled.button`
@@ -54,6 +57,13 @@ export const HeaderTitleLeft = styled.button`
   &:focus {
     outline: none;
   }
+  @media (max-width: 311px) {
+    padding: 0 7px;
+    font-size: 13px;
+  }
+  @media (max-width: 281px) {
+    padding: 0 3px;
+  }
 `;
 
 export const HeaderTitle = styled.button`
@@ -70,6 +80,17 @@ export const HeaderTitle = styled.button`
   padding: 0px 14px;
   &:focus {
     outline: none;
+  }
+  @media (max-width: 768px) {
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+  }
+  @media (max-width: 311px) {
+    padding: 0 7px;
+    font-size: 13px;
+  }
+  @media (max-width: 281px) {
+    padding: 0 3px;
   }
 `;
 
