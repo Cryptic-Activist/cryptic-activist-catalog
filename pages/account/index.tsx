@@ -1,7 +1,13 @@
 import React, { FC, useEffect } from 'react';
 import Router from 'next/router';
 import Link from 'next/link';
-import { FaCircle, FaHeart, FaHeartBroken, FaCog } from 'react-icons/fa';
+import {
+  FaCircle,
+  FaHeart,
+  FaHeartBroken,
+  FaCog,
+  FaPlus
+} from 'react-icons/fa';
 import { connect } from 'react-redux';
 
 import { IUser } from '../../interfaces/store/reducers/reducers';
@@ -37,7 +43,8 @@ import {
   FeedbacksListHeading,
   FeedbacksListSection,
   InlineSettingsDiv,
-  SettingsBtn
+  SettingsBtn,
+  BtnsDiv
 } from '../../styles/pages/Account/Account';
 
 const mapStateToProps = ({ user }) => ({ user });
@@ -164,14 +171,21 @@ const Account: FC<any> = ({ user }) => {
                       <CurrentOffersListHeading>
                         Current offers
                       </CurrentOffersListHeading>
-                      <Link
-                        href="/account/offers/settings"
-                        as="/account/offers/settings"
-                      >
-                        <SettingsBtn>
-                          <FaCog />
-                        </SettingsBtn>
-                      </Link>
+                      <BtnsDiv>
+                        <Link href="/offer/create" as="/offer/create">
+                          <SettingsBtn>
+                            <FaPlus />
+                          </SettingsBtn>
+                        </Link>
+                        <Link
+                          href="/account/offers/settings"
+                          as="/account/offers/settings"
+                        >
+                          <SettingsBtn>
+                            <FaCog />
+                          </SettingsBtn>
+                        </Link>
+                      </BtnsDiv>
                     </InlineSettingsDiv>
                     <CurrentOffersList />
                   </CurrentOffersSection>

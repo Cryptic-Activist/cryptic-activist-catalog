@@ -14,6 +14,17 @@ declare module 'styled-components' {
       mainBackground: string;
 
       components: {
+        pages: {
+          offer: {
+            create: {
+              paymentMethod: {
+                heading: {
+                  color: string;
+                };
+              };
+            };
+          };
+        };
         navbar: {
           brand: {
             color: string;
@@ -208,6 +219,33 @@ declare module 'styled-components' {
               negative: {
                 color: string;
               };
+            };
+          };
+        };
+        progressBar: {
+          createOffer: {
+            selection: {
+              active: {
+                borderColor: string;
+                color: string;
+                background: string;
+              };
+              deactivate: {
+                borderColor: string;
+                color: string;
+                background: string;
+              };
+            };
+            step: {
+              active: {
+                color: string;
+              };
+              deactivate: {
+                color: string;
+              };
+            };
+            separator: {
+              background: string;
             };
           };
         };

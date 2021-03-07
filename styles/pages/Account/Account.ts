@@ -334,6 +334,12 @@ export const CurrentOffersListHeading = styled.h2`
   font-size: 18px;
 `;
 
+export const BtnsDiv = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+`;
+
 export const FeedbacksListSection = styled.section`
   width: 100%;
   display: flex;

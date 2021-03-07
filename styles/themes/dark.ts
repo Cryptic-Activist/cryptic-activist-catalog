@@ -11,6 +11,17 @@ export default {
     mainBackground: '#131313',
 
     components: {
+      pages: {
+        offer: {
+          create: {
+            paymentMethod: {
+              heading: {
+                color: '#000'
+              }
+            }
+          }
+        }
+      },
       navbar: {
         brand: {
           color: '#fff'
@@ -207,6 +218,33 @@ export default {
             }
           }
         }
+      },
+      progressBar: {
+        createOffer: {
+          selection: {
+            active: {
+              borderColor: '#000',
+              color: '#578ffc',
+              background: '#ff'
+            },
+            deactivate: {
+              borderColor: '#a0a0a0',
+              color: '#a0a0a0',
+              background: '#fff'
+            }
+          },
+          step: {
+            active: {
+              color: '#000'
+            },
+            deactivate: {
+              color: '#a0a0a0'
+            }
+          },
+          separator: {
+            background: '#d0d0d0'
+          }
+        }
       }
     },
 
@@ -303,6 +341,11 @@ export default {
           color: '#000'
         },
         background: '#fff'
+      },
+      createOffer: {
+        heading: {
+          color: '#000'
+        }
       }
     },
 
