@@ -1,5 +1,4 @@
 import React, { FC, useEffect } from 'react';
-import Router from 'next/router';
 import Link from 'next/link';
 import {
   FaCircle,
@@ -15,6 +14,7 @@ import DateFormatter from '../../utils/formatter/date/DateFormatter';
 
 import CurrentOffersList from '../../components/UI/Lists/CurrentOffers/CurrentOffersList';
 import FeedbacksList from '../../components/UI/Lists/Feedbacks/FeedbacksList';
+import withAuth from '../../utils/hoc/withAuth';
 
 import Identicon from '../../assets/img/identicon.png';
 
@@ -51,12 +51,6 @@ const mapStateToProps = ({ user }) => ({ user });
 
 const Account: FC<any> = ({ user }) => {
   const dateFormatter = new DateFormatter();
-
-  useEffect(() => {
-    if (Object.entries(user.data).length === 0) {
-      Router.push('/');
-    }
-  }, [user.data]);
 
   function diffMonths(dt2, dt1) {
     let diff = (dt2.getTime() - dt1.getTime()) / 1000;
@@ -202,4 +196,4 @@ const Account: FC<any> = ({ user }) => {
   );
 };
 
-export default connect(mapStateToProps)(Account);
+export default connect(mapStateToProps)(withAuth(Account));
