@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+interface Props {
+  height: string;
+}
+
+export const Container = styled.div<Pick<Props, 'height'>>`
   width: 100%;
   height: ${(props) => props.height};
   display: flex;

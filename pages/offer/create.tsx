@@ -4,6 +4,8 @@ import PaymentMethod from '../../components/page/Offer/Create/PaymentMethod';
 import TradeInstructions from '../../components/page/Offer/Create/TradeInstructions';
 import TradePricing from '../../components/page/Offer/Create/TradePricing';
 
+import withAuth from '../../utils/hoc/withAuth';
+
 const OfferCreate: FC = () => {
   const [isPaymentMethod, setIsPaymentMethod] = useState<boolean>(true);
   const [isTradePricing, setIsTradePricing] = useState<boolean>(false);
@@ -61,4 +63,4 @@ const OfferCreate: FC = () => {
   );
 };
 
-export default OfferCreate;
+export default withAuth(OfferCreate);

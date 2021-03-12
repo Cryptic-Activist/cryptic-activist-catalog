@@ -21,6 +21,19 @@ declare module 'styled-components' {
                 heading: {
                   color: string;
                 };
+                chooseCryptocurrency: {
+                  heading: {
+                    color: string;
+                  };
+                  button: {
+                    hover: {
+                      borderColor: string;
+                    };
+                    background: string;
+                    borderColor: string;
+                    color: string;
+                  };
+                };
               };
             };
           };

@@ -17,6 +17,19 @@ export default {
             paymentMethod: {
               heading: {
                 color: '#000'
+              },
+              chooseCryptocurrency: {
+                heading: {
+                  color: '#000'
+                },
+                button: {
+                  hover: {
+                    borderColor: '#578ffc'
+                  },
+                  background: '#fff',
+                  borderColor: '#c0c0c0',
+                  color: '#000'
+                }
               }
             }
           }

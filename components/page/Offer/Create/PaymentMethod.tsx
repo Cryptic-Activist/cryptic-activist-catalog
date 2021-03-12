@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import { FaBitcoin } from 'react-icons/fa';
 
 import { IPaymentMethod } from '../../../../interfaces/components/pages/OfferCreate/OfferCreate';
 
@@ -9,7 +10,10 @@ import {
   Heading,
   Container,
   Aside,
-  Main
+  Main,
+  ChooseCryptocurrency,
+  ChooseCryptocurrencyHeading,
+  ChooseCryptocurrencyBtn
 } from '../../../../styles/components/page/Offer/Create/PaymentMethod';
 
 const PaymentMethod: FC<IPaymentMethod> = ({
@@ -30,6 +34,16 @@ const PaymentMethod: FC<IPaymentMethod> = ({
             isTradePricing={isTradePricing}
             isTradeInstructions={isTradeInstructions}
           />
+
+          <ChooseCryptocurrency>
+            <ChooseCryptocurrencyHeading>
+              Choose Cryptocurrency
+            </ChooseCryptocurrencyHeading>
+            <ChooseCryptocurrencyBtn>
+              <FaBitcoin />
+              <p>Bitcoin</p>
+            </ChooseCryptocurrencyBtn>
+          </ChooseCryptocurrency>
         </Main>
         <Aside></Aside>
       </Container>
